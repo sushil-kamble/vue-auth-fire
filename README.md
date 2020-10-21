@@ -1,5 +1,11 @@
 # vue-auth-fire
-This boiler plate which includes vue2, firebase authentication, vuetify.
+This boiler plate which includes vue.js, firebase authentication and vuetify.
+### **Demo Here:** [vue-auth-fire](https://vueauthfire.web.app/)
+Try Logging with the following
+```
+Email Address: test@gmail.com
+Password: test@12345
+```
 
 ### Steps
 * [Why vue-auth-fire](#vue-auth-fire)
@@ -44,7 +50,7 @@ Now you just have to **replace** the *contents of your scr folder* with the *con
 7. Replace that `firebaseConfig` object with one you just copied
 
 ### Run Project
-Type `npm run serve` and on `/auth` Register a user.
+Type `npm run serve`
 
 ### Features
 * When the user is logged in, his/her `id`, `name` and `email` will be stored in the store (`Vuex`). That means that information will available for entire app via `getter`
