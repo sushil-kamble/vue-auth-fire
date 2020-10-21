@@ -1,7 +1,6 @@
 <template>
-  <!-- primary-font -->
   <v-card class="pa-4 mt-10">
-    <h1 class="primary-font text-center">Register</h1>
+    <h1 class="text-center">Register</h1>
     <v-form @submit.prevent="registed" autocomplete="off">
       <v-text-field
         label="Enter Name"
@@ -37,7 +36,7 @@
       <h4 class="text-center mb-3">
         Already Have Account: <v-btn text @click="loginView">Login</v-btn>
       </h4>
-      <h4 v-if="feedback" class="red--text text-center my-2 primary-font">
+      <h4 v-if="feedback" class="red--text text-center my-2">
         {{ feedback }}
       </h4>
       <v-btn

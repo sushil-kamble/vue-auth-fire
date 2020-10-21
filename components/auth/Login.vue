@@ -1,5 +1,4 @@
 <template>
-  <!-- primary-font, color: secondaryis -->
   <v-card class="pa-4 mt-10">
     <h1 class="text-center">Login</h1>
     <v-form @submit.prevent="login" autocomplete="off">
