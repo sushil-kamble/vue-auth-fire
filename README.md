@@ -1,5 +1,5 @@
 # vue-auth-fire
-This boiler plate which includes vue2, firebase authentication, vuetify
+This boiler plate which includes vue2, firebase authentication, vuetify.
 
 ### Steps
 * [Why vue-auth-fire](#vue-auth-fire)
@@ -8,7 +8,7 @@ This boiler plate which includes vue2, firebase authentication, vuetify
 * [Run Project](#run-project)
 * [Features](#features)
 
-### Why vue-auth-fire
+### Why vue-auth-fire ?
 At times it get very irritating when you want to start your new project which is a firebase project in which you have to set *Authentication Flow* **EVERYTIME**.
 You have to add **Routes**, **Protect** your routes, create a **Login** & **Register** component, **Style** those component and have a nice **Loading animation**,
 **Validate** your login/register form. and much much more.
