@@ -25,3 +25,9 @@ export default {
   })
 };
 </script>
+
+<style scoped>
+#app {
+  background-color: lightgray;
+}
+</style>

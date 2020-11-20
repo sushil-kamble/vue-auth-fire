@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar color="primary" dense dark app>
+  <v-app-bar color="secondary" dense dark app>
     <v-toolbar-title>Page title</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn v-if="user" @click="logout" color="error" small>Logout</v-btn>

@@ -1,8 +1,10 @@
 <template>
-  <div class="d-flex justify-center align-center" style="height: 80vh;">
-    <v-card class="pa-3" width="600">
-      <h1 class="text-center">Register</h1>
-      <v-form @submit.prevent="registed" autocomplete="off">
+  <div class="d-flex justify-center align-center" style="height: 75vh;">
+    <v-card width="600">
+      <v-card-title class="ma-0 px-0 blue-grey darken-3 white--text">
+        <h1 class="pl-4">Register</h1>
+      </v-card-title>
+      <v-form class="pa-4" @submit.prevent="registed" autocomplete="off">
         <v-text-field
           label="Enter Name"
           :rules="[rules.required]"
@@ -34,12 +36,6 @@
           v-model="confirmPassword"
           label="Confirm Password"
         ></v-text-field>
-        <div class="d-sm-flex justify-end mb-4">
-          <v-btn @click="loginView" class="mt-2" dark>
-            <v-icon left>mdi-login</v-icon>
-            Login
-          </v-btn>
-        </div>
         <h4 v-if="feedback" class="red--text text-center my-2">
           {{ feedback }}
         </h4>
@@ -48,6 +44,15 @@
           Register
         </v-btn>
       </v-form>
+      <div
+        class="d-flex justify-space-between px-4 py-1 mt-2 blue-grey darken-3 white--text"
+      >
+        <h4 class="mt-1">Already Registered?</h4>
+        <v-btn @click="loginView" text dark>
+          <v-icon left>mdi-login</v-icon>
+          Login
+        </v-btn>
+      </div>
     </v-card>
   </div>
 </template>

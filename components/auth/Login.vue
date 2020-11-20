@@ -1,8 +1,10 @@
 <template>
   <div class="d-flex justify-center align-center" style="height: 80vh;">
-    <v-card class="pa-3" width="600">
-      <h1 class="text-center">Login</h1>
-      <v-form @submit.prevent="login" autocomplete="off">
+    <v-card width="600">
+      <v-card-title class="ma-0 px-0 blue-grey darken-3 white--text">
+        <h1 class="pl-4">Login</h1>
+      </v-card-title>
+      <v-form class="pa-4" @submit.prevent="login" autocomplete="off">
         <v-text-field
           label="Email address"
           v-model="email"
@@ -16,14 +18,10 @@
           label="Password"
           @click:append="show1 = !show1"
         ></v-text-field>
-        <div class="d-sm-flex justify-sm-space-between mb-4">
-          <ForgotPass class="mt-2" />
-          <v-btn @click="registerView" class="mt-2" dark>
-            <v-icon left>mdi-file-edit</v-icon>
-            Register
-          </v-btn>
+        <div class="d-sm-flex justify-end my-3">
+          <ForgotPass />
         </div>
-        <h4 v-if="feedback" class="red--text text-center my-2">
+        <h4 v-if="feedback" class="red--text my-2">
           {{ feedback }}
         </h4>
         <v-btn type="submit" color="secondary" :loading="loading" block>
@@ -31,6 +29,15 @@
           LOGIN
         </v-btn>
       </v-form>
+      <div
+        class="d-flex justify-space-between px-4 py-1 mt-2 blue-grey darken-3 white--text"
+      >
+        <h4 class="mt-1">Create Account?</h4>
+        <v-btn @click="registerView" text dark>
+          <v-icon left>mdi-login</v-icon>
+          Register
+        </v-btn>
+      </div>
     </v-card>
   </div>
 </template>

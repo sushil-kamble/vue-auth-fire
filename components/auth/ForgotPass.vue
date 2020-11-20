@@ -2,8 +2,8 @@
   <div>
     <v-dialog v-model="dialog" width="500">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn v-bind="attrs" v-on="on">
-          Forgot Password
+        <v-btn v-bind="attrs" v-on="on" small text>
+          Forgot / Change Password
         </v-btn>
       </template>
 
@@ -29,7 +29,17 @@
           >
             Email has been successfully sent to your email address. There will
             be a link which will redirect you to change password page. <br />
-            You can close this dialog box now.
+            You can close this dialog box now. <br />
+            <v-btn
+              class="mt-3"
+              small
+              block
+              @click="closeDialog"
+              href="https://mail.google.com/mail/"
+              target="_blank"
+            >
+              TAKE ME TO MY GMAIL
+            </v-btn>
           </div>
         </v-card-text>
 
