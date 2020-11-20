@@ -1,44 +1,49 @@
 <template>
-  <v-card class="pa-4 mt-10">
-    <h1 class="text-center">Login</h1>
-    <v-form @submit.prevent="login" autocomplete="off">
-      <v-text-field
-        label="Email address"
-        v-model="email"
-        :suffix="emailPostfixTemplate ? '@gmail.com' : ''"
-      ></v-text-field>
-      <v-text-field
-        class="mb-2"
-        v-model="password"
-        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-        :type="show1 ? 'text' : 'password'"
-        name="input-10-1"
-        label="Password"
-        @click:append="show1 = !show1"
-      ></v-text-field>
-      <h4 class="text-center mb-3">
-        Register Account: <v-btn text @click="registerView">Register</v-btn>
-      </h4>
-      <h4 v-if="feedback" class="red--text text-center my-2">
-        {{ feedback }}
-      </h4>
-      <v-btn
-        type="submit"
-        color="secondary"
-        class="rounded-b-pill"
-        :loading="loading"
-        block
-      >
-        Submit
-      </v-btn>
-    </v-form>
-  </v-card>
+  <div class="d-flex justify-center align-center" style="height: 80vh;">
+    <v-card class="pa-3" width="600">
+      <h1 class="text-center">Login</h1>
+      <v-form @submit.prevent="login" autocomplete="off">
+        <v-text-field
+          label="Email address"
+          v-model="email"
+          :suffix="emailPostfixTemplate ? '@gmail.com' : ''"
+        ></v-text-field>
+        <v-text-field
+          class="mb-2"
+          v-model="password"
+          :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+          :type="show1 ? 'text' : 'password'"
+          label="Password"
+          @click:append="show1 = !show1"
+        ></v-text-field>
+        <div class="d-sm-flex justify-sm-space-between mb-4">
+          <ForgotPass class="mt-2" />
+          <v-btn @click="registerView" class="mt-2" dark>
+            <v-icon left>mdi-file-edit</v-icon>
+            Register
+          </v-btn>
+        </div>
+        <h4 v-if="feedback" class="red--text text-center my-2">
+          {{ feedback }}
+        </h4>
+        <v-btn type="submit" color="secondary" :loading="loading" block>
+          <v-icon left>mdi-login</v-icon>
+          LOGIN
+        </v-btn>
+      </v-form>
+    </v-card>
+  </div>
 </template>
 
 <script>
 import { auth } from "@/firebase/init.js";
+import ForgotPass from "@/components/auth/ForgotPass";
+
 export default {
   name: "Login",
+  components: {
+    ForgotPass
+  },
   data() {
     return {
       email: "",
@@ -52,11 +57,7 @@ export default {
   },
   computed: {
     emailPostfixTemplate() {
-      if (this.email.search("@") !== -1) {
-        return false;
-      } else {
-        return true;
-      }
+      return this.email.search("@") === -1;
     }
   },
   methods: {

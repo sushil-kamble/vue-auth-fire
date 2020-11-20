@@ -1,54 +1,55 @@
 <template>
-  <v-card class="pa-4 mt-10">
-    <h1 class="text-center">Register</h1>
-    <v-form @submit.prevent="registed" autocomplete="off">
-      <v-text-field
-        label="Enter Name"
-        :rules="[rules.required]"
-        v-model="name"
-        append-icon="mdi-account"
-      ></v-text-field>
-      <v-text-field
-        label="Email address"
-        :rules="[rules.required, rules.email]"
-        v-model="email"
-        append-icon="mdi-email"
-      ></v-text-field>
-      <v-text-field
-        v-model="password"
-        :append-icon="showPass ? 'mdi-eye' : 'mdi-eye-off'"
-        :rules="[rules.required, rules.min]"
-        :type="showPass ? 'text' : 'password'"
-        label="Password"
-        hint="At least 6 characters"
-        counter
-        @click:append="showPass = !showPass"
-      ></v-text-field>
-      <v-text-field
-        class="mb-2"
-        append-icon="mdi-lock"
-        :counter="password.length"
-        :rules="[rules.required, rules.passwordConfirmation]"
-        type="password"
-        v-model="confirmPassword"
-        label="Confirm Password"
-      ></v-text-field>
-      <h4 class="text-center mb-3">
-        Already Have Account: <v-btn text @click="loginView">Login</v-btn>
-      </h4>
-      <h4 v-if="feedback" class="red--text text-center my-2">
-        {{ feedback }}
-      </h4>
-      <v-btn
-        type="submit"
-        color="secondary"
-        class="primary-font rounded-b-pill"
-        :loading="loading"
-        block
-        >Submit
-      </v-btn>
-    </v-form>
-  </v-card>
+  <div class="d-flex justify-center align-center" style="height: 80vh;">
+    <v-card class="pa-3" width="600">
+      <h1 class="text-center">Register</h1>
+      <v-form @submit.prevent="registed" autocomplete="off">
+        <v-text-field
+          label="Enter Name"
+          :rules="[rules.required]"
+          v-model="name"
+          append-icon="mdi-account"
+        ></v-text-field>
+        <v-text-field
+          label="Email address"
+          :rules="[rules.required, rules.email]"
+          v-model="email"
+          append-icon="mdi-email"
+        ></v-text-field>
+        <v-text-field
+          v-model="password"
+          :append-icon="showPass ? 'mdi-eye' : 'mdi-eye-off'"
+          :rules="[rules.required, rules.min]"
+          :type="showPass ? 'text' : 'password'"
+          label="Password"
+          hint="At least 6 characters"
+          counter
+          @click:append="showPass = !showPass"
+        ></v-text-field>
+        <v-text-field
+          class="mb-2"
+          append-icon="mdi-lock"
+          :counter="password.length"
+          :rules="[rules.required, rules.passwordConfirmation]"
+          type="password"
+          v-model="confirmPassword"
+          label="Confirm Password"
+        ></v-text-field>
+        <div class="d-sm-flex justify-end mb-4">
+          <v-btn @click="loginView" class="mt-2" dark>
+            <v-icon left>mdi-login</v-icon>
+            Login
+          </v-btn>
+        </div>
+        <h4 v-if="feedback" class="red--text text-center my-2">
+          {{ feedback }}
+        </h4>
+        <v-btn type="submit" color="secondary" :loading="loading" block>
+          <v-icon left>mdi-file-edit</v-icon>
+          Register
+        </v-btn>
+      </v-form>
+    </v-card>
+  </div>
 </template>
 
 <script>
